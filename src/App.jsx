@@ -7,6 +7,7 @@ import AuthPage from './pages/AuthPage';
 import InventoryPage from './pages/InventoryPage';
 import DashboardPage from './pages/DashboardPage';
 import './App.css';
+import SettingsPage from './pages/SettingsPage';
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -23,14 +24,17 @@ function AppContent() {
         <div>
           <button onClick={() => setPage('dashboard')}>Dashboard</button>
           <button onClick={() => setPage('inventory')}>Inventory</button>
+          <button onClick={() => setPage('settings')}>Settings</button>
           <button onClick={() => signOut(auth)}>Logout</button>
         </div>
       </nav>
 
       {page === 'dashboard' ? (
         <DashboardPage onNavigate={setPage} />
-      ) : (
+      ) : page === 'inventory' ? (
         <InventoryPage />
+      ) : (
+        <SettingsPage />
       )}
     </>
   );
