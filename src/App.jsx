@@ -1,6 +1,7 @@
 
 import { AuthProvider, useAuth } from './context/AuthContext';
 import AuthPage from './pages/AuthPage';
+import InventoryPage from './pages/InventoryPage';
 import './App.css';
 
 function AppContent() {
@@ -10,15 +11,7 @@ function AppContent() {
 
   if (!user) return <AuthPage />;
 
-  return (
-    <main className="auth-page">
-      <section className="auth-card">
-        <h1>Welcome to StockFlow</h1>
-        <p>Logged in as {user.email}</p>
-        <p>Next, we'll connect your organization and inventory.</p>
-      </section>
-    </main>
-  );
+  return <InventoryPage />;
 }
 
 export default function App() {
